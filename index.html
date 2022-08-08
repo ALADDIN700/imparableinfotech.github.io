@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/index.css" />
+    <title>IMPARABLE INFOTECH</title>
+  </head>
+  <body>
+    <div class="flotting-text">
+      <h1>IMPARABLE  INFOTECH</h1>
+      
+    </div>
+    <form id="MyForm" method="post" autocomplete="off" name="datafetch">
+      <div class="col">
+      <label>Agent Name
+      <input type="text" id="UIBased" name="AgentName" />
+    </label>
+      <label>Patience First Name
+      <input type="text" id="UIBased" name="Patiencefirstname" />
+  </label>
+      <label>Patience Last ame
+      <input type="text" idN="UIBased" name="Patiencelastname" />
+      </label>
+      <label>DOB
+      <input
+        id="UIBased"
+        type="date"
+        id="start"
+        name="DOB"
+        min="1940-01-01"
+        max="2022-12-31"
+      />
+    </label>
+      <label>Address
+      <input type="text" id="UIBased" name="Address" required />
+    </label>
+      <label>Braces
+      <input type="text" id="UIBased" name="Braces" required />
+    </label>
+    
+      <label>Process
+      <input type="text" id="UIBased" name="Process" required />
+    </label>
+      <label>CGM
+      <input type="text" id="UIBased" name="CGM" required />
+    </label>
+      <label>DME posting
+      <input type="text" id="UIBased" name="DMEposting" required />
+    </label>
+      <label>DME livetransfer
+      <input type="text" id="UIBased" name="DMElivetransfer" required />
+    </label>
+      <label>Medicare Advantage Plan
+      <input type="text" id="UIBased" name="MedicareAdvantagePlan" required />
+    </label>
+      <input
+        type="submit"
+        id="btn"
+
+        name="submitbuttin"
+        value="Submit"
+        onclick="submitForm()"
+      />
+    </form>
+    
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxfXC3UwizcKT5SpnA76ncc4qteOZ0PuBhsjrqw5dRmxEDrcDKAv5hH2x9zYUJnConGrA/exec";
+      const form = document.forms["datafetch"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => alert("SUCCESSFULLY UPLOAD"))
+          .catch((error) => console.error("Error!", error.message));
+      });
+      const btn = document.getElementById("MyForm");
+
+      btn.addEventListener("submit", function handleClick(event) {
+        event.preventDefault();
+
+        form.reset();
+      });
+      const SubmitBTN = document.getElementById("myBtn");
+      function myFunction() {
+        SubmitBTN.disabled = true;
+        setTimeout(() => {
+          SubmitBTN.disabled = false;
+          console.log("Button Activated");
+        }, 5000);
+      }
+    </script>
+  </body>
+</html>
