@@ -4,6 +4,9 @@ body {
   padding: 0px;
   background-color: rgb(218, 249, 221);
 }
+.textp{
+    display: none;
+}
 textarea{
     width: 28%;
 }
