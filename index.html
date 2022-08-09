@@ -4,29 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="responsive.css" />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/responsive.css">
+
     <title>IMPARABLE INFOTECH</title>
   </head>
   <body>
     <div class="flotting-text">
       <h1>IMPARABLE  INFOTECH</h1>
+      
     </div>
     <h2 class="textp">
       Webpage r not available for <b>mobile device</b>
     </h2>
     <form id="MyForm" method="post" autocomplete="off" name="datafetch">
       <div class="col">
-      <label>Agent Name
+      <label>Agent Name:
       <input type="text" id="UIBased" name="AgentName" />
     </label>
-      <label>Patience First Name
+      <label>Patience First Name:
       <input type="text" id="UIBased" name="Patiencefirstname" />
   </label>
-      <label>Patience Last ame
+      <label>Patience Last ame:
       <input type="text" idN="UIBased" name="Patiencelastname" />
       </label>
-      <label>DOB
+      <label>DOB:
       <input
         id="UIBased"
         type="date"
@@ -36,35 +38,41 @@
         max="2022-12-31"
       />
     </label>
-      <label>Address
-      <input type="text" id="UIBased" name="Address" required />
-    </label>
-      <label>Braces
-      <input type="text" id="UIBased" name="Braces" required />
-    </label>
-    
-      <label>Process
+    <label>Process:
       <input type="text" id="UIBased" name="Process" required />
     </label>
-      <label>CGM
-      <input type="text" id="UIBased" name="CGM" required />
+      <label>Braces:
+      <input type="text" id="UIBased" name="Braces" required />
     </label>
-      <label>DME posting
-      <input type="text" id="UIBased" name="DMEposting" required />
+    <label>Address:
+      <input type="text" class="address-area" id="UIBased" name="Address" required >
     </label>
-      <label>DME livetransfer
-      <input type="text" id="UIBased" name="DMElivetransfer" required />
-    </label>
-      <label>Medicare Advantage Plan
-      <input type="text" id="UIBased" name="MedicareAdvantagePlan" required />
-    </label>
+    <div style="display: inline-flex;">
+    <label class="lables">
+      <input class="inputer" type="checkbox"  id="UIBased"  onclick="onlyOne(this)" name="more"  value="CGM"/>
+      CGM: </label>
+
+      <label class="lables">
+      <input class="inputer" type="checkbox"  id="UIBased" onclick="onlyOne(this)" name="more"  value="DME posting"/>
+      DME posting:</label>
+    </div>
+    <label class="lables">
+      <input class="inputer" type="checkbox" id="UIBased" onclick="onlyOne(this)" name="more"  value="DME livetransfer"/>
+      DME livetransfer:</label>
+
+      <label class="lables">
+      <input class="inputer" type="checkbox" id="UIBased" onclick="onlyOne(this)" name="more"  value="Medicare Advantage Plan"/>
+      Medicare Advantage Plan:</label>
+        
+      <label class="lables" style="color: red;">
+      <input class="inputer" checked="true" type="checkbox" id="UIBased" onclick="onlyOne(this)" name="more"  value="Null"/>
+      NA</label>
       <input
         type="submit"
         id="btn"
-
         name="submitbuttin"
         value="Submit"
-        onclick="submitForm()"
+        onclick="submitForm();"
       />
     </form>
     
@@ -94,6 +102,21 @@
           console.log("Button Activated");
         }, 5000);
       }
+
+  function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('more');
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) {
+          item.checked  = false;
+          item.setAttribute = true;
+        }
+        else{
+          item.removeAttribute = true;
+        }
+      }
+    )
+}
+
     </script>
   </body>
 </html>
