@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>IMPARABLE INFOTECH</title>
+  </head>
+  <body>
+    <div class="flotting-text">
+      <h1>IMPARABLE  INFOTECH  </h1>
+      
+    </div>
+    <h2 class="textp">
+      Webpage r not available for <b>mobile device</b>
+    </h2>
+    <form id="MyForm" method="post" autocomplete="off" name="datafetch" >
+    
+
+    <label class="date">today DATE:
+      <input type="date" id="date" name="Date" required/>
+    </label>
+    <label>Medicare ID
+      <input type="text" id="UIBased" name="MedicareID" required/>
+    </label>
+    <label>Phone-No:
+      <input type="number" id="UIBased" name="phoneno" required/>
+    </label>
+    <label>Agent Name:
+      <input type="text" id="UIBased" name="AgentName" required/>
+    </label>
+      <label>Patience First Name:
+      <input type="text" id="UIBased" name="Patiencefirstname" required/>
+    </label>
+      <label>Patience Last ame:
+      <input type="text" idN="UIBased" name="Patiencelastname" required/>
+      </label>
+      <label>DOB:
+      <input
+        id="UIBased"
+        type="date"
+        id="start"
+        name="DOB"
+        min="1940-01-01"
+        max="2022-12-31"
+      />
+    </label>
+    <label>Process:
+      <input type="text" id="UIBased" name="Process" required />
+    </label>
+      <label>Braces:
+      <input type="text" id="UIBased" name="Braces" required />
+    </label>
+    <label>Address:
+      <input type="text" class="address-area" id="UIBased" name="Address" required >
+    </label>
+    <div style="display: inline-flex;">
+    <label class="lables">
+      <input class="inputer" type="checkbox"  id="UIBased"  onclick="onlyOne(this)" name="more"  value="CGM"/>
+      CGM </label>
+
+      <label class="lables">
+      <input class="inputer" type="checkbox"  id="UIBased" onclick="onlyOne(this)" name="more"  value="DME posting"/>
+      DME posting</label>
+    </div>
+    <label class="lables">
+      <input class="inputer" type="checkbox" id="UIBased" onclick="onlyOne(this)" name="more"  value="DME livetransfer"/>
+      DME livetransfer</label>
+
+      <label class="lables">
+      <input class="inputer" type="checkbox" id="UIBased" onclick="onlyOne(this)" name="more"  value="Medicare Advantage Plan"/>
+      Medicare Advantage Plan</label>
+        
+      <label class="lables" >
+      <input class="inputer" type="checkbox" id="UIBased" onclick="onlyOne(this)" name="more"  value="imuno"/>
+      imuno</label>
+
+      <label class="lables" >
+      <input class="inputer" type="checkbox" id="UIBased" onclick="onlyOne(this)" name="more"  value="cgx"/>
+      cgx</label>
+
+      <label class="lables" style="color: red;">
+        <input class="inputer" checked="true" type="checkbox" id="UIBased" onclick="onlyOne(this)" name="more"  value="NA"/>
+      NA</label>
+    
+    
+
+        <input
+        type="submit"
+        id="btn"
+        name="submitbuttin"
+        value="Submit"
+        onclick="this.form.submitForm();this.disable = true;"
+      ></input>
+      
+    </form>
+    <script>
+
+      document.getElementById('date').value = new Date().toISOString().substring(0, 10);
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxfXC3UwizcKT5SpnA76ncc4qteOZ0PuBhsjrqw5dRmxEDrcDKAv5hH2x9zYUJnConGrA/exec";
+      const form = document.forms["datafetch"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => alert("SUCCESSFULLY UPLOAD")? "" : location.reload())
+          .catch((error) => console.error("Error!", error.message));
+      });
+      const btn = document.getElementById("MyForm");
+
+      btn.addEventListener("submit", function handleClick(event) {
+        event.preventDefault();
+
+        form.reset();
+      });
+
+
+  function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('more');
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) {
+          item.checked  = false;
+          item.setAttribute = true;
+        }
+        else{
+          item.removeAttribute = true;
+        }
+      }
+    )
+}
+
+    </script>   
+    <!-- <script>
+      const btn = document.getElementById("MyForm");
+
+      btn.addEventListener("submit", function handleClick(event) {
+      event.preventDefault();
+
+      // form.reset();
+});
+
+      document.getElementById('date').value = new Date().toISOString().substring(0, 10);
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxfXC3UwizcKT5SpnA76ncc4qteOZ0PuBhsjrqw5dRmxEDrcDKAv5hH2x9zYUJnConGrA/exec";
+      const form = document.forms["datafetch"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => alert("SUCCESSFULLY UPLOAD")? "" : location.reload())
+          
+          .catch((error) => console.error("Error!", error.message));
+      });
+
+      
+
+  function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('more');
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) {
+          item.checked  = false;
+          item.setAttribute = true;
+        }
+        else{
+          item.removeAttribute = true;
+        }
+      }
+    )
+}
+    </script> -->
+  </body>
+</html>
